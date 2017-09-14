@@ -1,11 +1,11 @@
 Oracle EE 12.1 Release 1
 ============================
-######forked from [MaksymBilenko/docker-oracle-ee-12c](#https://github.com/MaksymBilenko/docker-oracle-ee-12c)
+forked from [MaksymBilenko/docker-oracle-ee-12c](#https://github.com/MaksymBilenko/docker-oracle-ee-12c)
 
 ### Build instruction
 
 To build container you must provide URLs where installation script can download Oracle Enterprise Edition Software (12.1.0.2.0) [http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html]. 
-It consist of 2 parts, so you define DB_DOWNLOAD_URL_P1 & DB_DOWNLOAD_URL_P2:
+It consists of 2 parts, so you define DB_DOWNLOAD_URL_P1 & DB_DOWNLOAD_URL_P2:
     
     docker build --tag company.name/oracle-ee:12.1.0.2 \
     --build-arg DB_DOWNLOAD_URL_P1="http://example.com/linuxamd64_12102_database_1of2.zip"  \
