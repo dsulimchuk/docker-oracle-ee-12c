@@ -4,12 +4,25 @@ forked from [MaksymBilenko/docker-oracle-ee-12c](#https://github.com/MaksymBilen
 
 ### Build instruction
 
-To build container you must provide URLs where installation script can download Oracle Enterprise Edition Software (12.1.0.2.0) [http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html]. 
-It consists of 2 parts, so you define DB_DOWNLOAD_URL_P1 & DB_DOWNLOAD_URL_P2:
+To build container you must provide URLs where installation script can download: 
+    
+Oracle Enterprise Edition Software (12.1.0.2.0) [http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html]    
+
+    linuxamd64_12102_database_1of2.zip
+    linuxamd64_12102_database_2of2.zip 
+
+OPatch 12.2.0.1.11
+
+    p6880880_121010_Linux-x86-64.zip 
+ 
+Patch 26635880: DATABASE PROACTIVE BUNDLE PATCH 12.1.0.2.171017:
+     
+    p26635880_121020_Linux-x86-64.zip
+
+After that you can build image:     
     
     docker build --tag company.name/oracle-ee:12.1.0.2 \
-    --build-arg DB_DOWNLOAD_URL_P1="http://example.com/linuxamd64_12102_database_1of2.zip"  \
-    --build-arg DB_DOWNLOAD_URL_P2="http://example.com/linuxamd64_12102_database_2of2.zip" \
+    --build-arg DB_DOWNLOAD_URL="http://localhost/" \
     .
 ### Usage
 
@@ -29,15 +42,15 @@ Connect database with following setting:
 
     hostname: localhost
     port: 1521
-    sid: xe
-    service name: xe
+    sid: ee
+    service name: ee
     username: system
     password: oracle
 
 To connect using sqlplus:
 
 <pre>
-sqlplus system/oracle@//localhost:1521/xe
+sqlplus system/oracle@//localhost:1521/ee
 </pre>
 
 Password for SYS & SYSTEM:
